@@ -1,0 +1,36 @@
+<h1 class="flex justify-center text-lg font-bold m-4">Estimate your salary for Annual, Monthly, Weekly, Daily and Hourly - {{workingHoursPerWeek}} hours work week</h1>
+<section class="flex justify-center items-center m-4">
+    <main>
+        <form #f="ngForm">
+            <div class="flex flex-col gap-4 m-4">
+                <div class="relative w-full grid grid-cols-2 items-center">
+                    <label for="workingHours">Working Hours per week</label>
+                    <input ngModel #workingHours="ngModel" (input)="workingHoursPerWeek = workingHours.value" value="40" name="workingHours" type="number" id="workingHours" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-100 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Default - 40" required>
+                </div>
+                <div class="relative w-full grid grid-cols-2 items-center">
+                    <label for="ctc">CTC/Annual</label>
+                    <input ngModel #ctc="ngModel" [value]="finalValue" (input)="valueChange('ctc',ctc)" name="ctc" type="number" id="ctc" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-100 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Enter your CTC" required>
+                </div>
+                <div class="relative w-full grid grid-cols-2 items-center">
+                    <label for="monthly">Monthly</label>
+                    <input ngModel [value]="finalValue/12" (input)="valueChange('monthly',monthly)" #monthly="ngModel" name="monthly" type="number" id="monthly" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-100 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="monthly" required>
+                </div>
+                <div class="relative w-full grid grid-cols-2 items-center">
+                    <label for="weekly">Weekly</label>
+                    <input ngModel [value]="finalValue/52" (input)="valueChange('weekly',weekly)" #weekly="ngModel" name="weekly" type="number" id="weekly" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-100 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="weekly" required>
+                </div>
+                <div class="relative w-full grid grid-cols-2 items-center">
+                    <label for="daily">Daily</label>
+                    <input ngModel [value]="finalValue/52/5" (input)="valueChange('daily',daily)" #daily="ngModel" name="daily" type="number" id="daily" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-100 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="daily" required>
+                </div>
+                <div class="relative w-full grid grid-cols-2 items-center">
+                    <label for="hourly">Hourly</label>
+                    <input ngModel [value]="finalValue/workingHoursPerWeek/52" (input)="valueChange('hourly',hourly)" #hourly="ngModel" name="hourly" type="number" id="hourly" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-100 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="hourly" required>
+                </div>
+            </div>
+        </form>
+    </main>
+</section>
+<footer class="flex justify-center m-4">
+    Made with ♥ By Shajith
+</footer>
